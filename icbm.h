@@ -1,7 +1,11 @@
-// ICBM - inetgrated combined baseline modification
+// ICBM - integrated combined baseline modification
 // ICBM corrects baseline jumps of JMA acceleration waveform data by a segmented least squares fit on the velocity trace
 // variable number of parameters is implemented
 // requires -larmadillo when compiling
+
+// COPYRIGHT 2019 Sebastian von Specht
+
+// This software is distributed under the MIT license. See the license file in this repository.
 
 #ifndef ICBM_H
 #define ICBM_H
