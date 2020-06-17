@@ -51,10 +51,12 @@ You may not have to alter most of these values, however some need to be adjusted
 
 list of parameters:
 
-* Nsmin  integer > 0 minimum number of segments default: 1
-* Nsmax integer >= Nsmin default: 6
-* thrshld double precision float minimum velocity drift of a jump to be included default: 1e-5
-* nmin integer number of iteration default: 500
+Parameter | Data type | Description | Default value
+---------
+Nsmin | integer | minimum number of segments to be evaluated, must be larger than 0 | 1
+Nsmax | integer | maximum number of segments to be evaluated, Nsmax >= Nsmin | 6
+thrshld | double precision float | minimum velocity drift of a jump to be kept in the baseline model | 1e-5
+nmin | integer | minimum number of iterations | 500
 
 # Output
 
