@@ -1,4 +1,4 @@
-## ICBM—Integrated Combined Baseline Modification: An Algorithm for Segmented Baseline Estimation
+# ICBM—Integrated Combined Baseline Modification: An Algorithm for Segmented Baseline Estimation
 
 Accelerograms are the primary source for characterizing strong ground motion. It is therefore of paramount interest to have high‐quality recordings free from any nonphysical contamination. Frequently, accelerograms are affected by baseline jumps and drifts, either related to the instrument and/or a major earthquake. In this work, I propose a correction method for these undesired baseline drifts based on segmented linear least squares. The algorithm operates on the integrated waveforms and combines all three instrument components to estimate a model that modifies the baseline to be at zero continuously. The procedure consists of two steps: first a suite of models with variable numbers of discontinuities is derived for all three instrument components. During this process, the number of discontinuities is reduced in a parsimonious way, for example, two very close discontinuities are merged into a single one. In the second step, the optimal model is selected on the basis of the Bayesian information criterion. 
 
@@ -17,13 +17,13 @@ or
 can be made available in Python through numpy and a cython interface (under construction).   
 
 
-# C++ Prerequisites:
+## C++ Prerequisites:
 	
 armadillo (tested with v.9.880)
 	
 Check http://arma.sourceforge.net/download.html for installation on your system
 	
-# Python Prerequisites:
+## Python Prerequisites:
 	
 Python 3: numpy, cython
 		
