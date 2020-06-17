@@ -52,7 +52,7 @@ You may not have to alter most of these values, however some need to be adjusted
 list of parameters:
 
 Parameter | Data type | Description | Default value
----------
+--|--|--|--
 Nsmin | integer | minimum number of segments to be evaluated, must be larger than 0 | 1
 Nsmax | integer | maximum number of segments to be evaluated, Nsmax >= Nsmin | 6
 thrshld | double precision float | minimum velocity drift of a jump to be kept in the baseline model | 1e-5
