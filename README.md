@@ -41,11 +41,11 @@ This is covered in the makefile (coming soon).
 ICBM requires a few parameters, set in DEFCON.
 
 DEFCON is simply a textfile listing the configuration parameters for ICBM.
-You can alter the order of entries and change the number of whitespaces or tabs. The basic structure
+You can alter the order of entries and change the number of whitespaces or tabs. The basic structure,
 
     name value
 	
-must remain, and parameter names are not alterable.
+however, must remain, and parameter names are not alterable (inluding lower / upper case).
 
 You may not have to alter most of these values, however some need to be adjusted for every new data set.
 
@@ -54,7 +54,8 @@ Parameter | Data type | Description | Default value
 Nsmin | integer | minimum number of segments to be evaluated, must be larger than 0 | 1
 Nsmax | integer | maximum number of segments to be evaluated, Nsmax >= Nsmin | 6
 thrshld | double precision float | minimum velocity drift of a jump to be kept in the baseline model | 1e-5
-nmin | integer | minimum number of iterations | 500
+Niter | integer | minimum number of iterations | 500
+nmin | integer | minimum number of data samples between jumps; jumps with a separation of less than nmin samples will be merged to a single jump | 500  
 
 # Output
 
@@ -66,8 +67,6 @@ In C++ the traces are stored in
 std::vector<std::vector>> (M, std:vector<double>(N))
 ```
 
-where M is the number of traces (usually 1 or 3,l currently only three traces are supported) and N is the number of samples per trace.
+where M is the number of traces (usually 1 or 3, currently only three traces are supported) and N is the number of samples per trace.
 
 Optionally, the correction model can be written out. This is of particular interest, if the baseline jump associated with static near-field displacement should not be corrected for. Due to its sequential definition, the ICBM model will still correct for the remaining jumps.
-
-CHECK that!
