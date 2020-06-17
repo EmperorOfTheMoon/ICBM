@@ -43,13 +43,11 @@ ICBM requires a few parameters, set in DEFCON.
 DEFCON is simply a textfile listing the configuration parameters for ICBM.
 You can alter the order of entries and change the number of whitespaces or tabs. The basic structure
 
-name value
+    name value
 	
 must remain, and parameter names are not alterable.
 
 You may not have to alter most of these values, however some need to be adjusted for every new data set.
-
-list of parameters:
 
 Parameter | Data type | Description | Default value
 --|--|--|--
@@ -64,7 +62,9 @@ The output of ICBM contains the corrected accelerograms with baseline discontinu
 
 In C++ the traces are stored in
 
+'''C++
 std::vector<std::vector>> (M, std:vector<double>(N))
+'''
 
 where M is the number of traces (usually 1 or 3,l currently only three traces are supported) and N is the number of samples per trace.
 
