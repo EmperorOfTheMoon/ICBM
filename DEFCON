@@ -1,0 +1,5 @@
+Nsmin	1
+Nsmax	6
+thrshld	1e-5
+Niter	500
+nmin	500 
