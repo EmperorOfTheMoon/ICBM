@@ -3,7 +3,7 @@
 // variable number of parameters is implemented
 // requires -larmadillo when compiling
 
-// COPYRIGHT 2019 Sebastian von Specht
+// COPYRIGHT 2019,2020 Sebastian von Specht
 
 // This software is distributed under the MIT license. See the license file in this repository.
 
@@ -12,7 +12,6 @@
 
 #include <cmath>
 #include <fstream>
-// #include <sstream>
 #include <iostream>
 #include <vector>
 #include <armadillo>
@@ -22,14 +21,34 @@ bool compare(double a, double b) {
   return (a < b);
 }
 
-std::vector<std::vector<double>> icbm(std::vector<std::vector<double>> x, int Nsmin = 1, int Nsmax = 6, double thrshld = 1e-5, int nmin = 500) {
+std::vector<std::vector<double>> icbm(std::vector<std::vector<double>> x, int Nsmin = 1, int Nsmax = 6, double thrshld = 1e-5, int Niter = 500, int nmin = 500) {
 
   if (x.size() != 3) {
     std::cerr << "Wrong number of traces.\nTerminate.\n";
     // return VECTOR;
   }
 
-  // std::ifstream ifs;
+  std::ifstream ifs("DEFCON");
+  
+	if ifs.is_open() {
+		string defcon_name;
+		double defcon_val;
+		while (ifs >> defcon_name >> defcon_val) {
+			if (defcon_name.compare("Nsmin"))
+				Nsmin = (int)defcon_val;
+			else if (defcon_name.compare("Nsmax"))
+				Nsmax = (int)defcon_val;
+			else if (defcon_name.compare("thrshld"))
+				thrshld = defcon_val;
+			else if (defcon_name.compare("nmin"))
+				nmin = (int)defcon_val;
+			else if (defcon_name.compare("Niter"))
+				Niter = (int)defcon_val;
+		}
+	}
+	else
+		cout << "Note: DEFCON not found, setting default values.\n";
+  
   std::ofstream ofs;
 
 
@@ -133,7 +152,7 @@ std::vector<std::vector<double>> icbm(std::vector<std::vector<double>> x, int Ns
     // std::ofstream ofs("testiter");
 
 
-    while (((fabs(1.-sumres/sumresold) > thrshld) & (j < nmin))) {
+    while (((fabs(1.-sumres/sumresold) > thrshld) & (j < Niter))) {
 
       if (j == 0) {
         for (int i = 0; i < 3; ++i)
