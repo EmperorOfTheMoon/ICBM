@@ -31,7 +31,7 @@ Python 3: numpy, cython
 
 Install the header file in your C++ library path or link it in the compiler. If you link to the headerfile by yourself, in g++ compilation looks like
 
-$ g++ program.cpp -o program -larmadillo -I/path/to/the/file/icbm.h -O3 
+    $ g++ program.cpp -o program -larmadillo -I/path/to/the/file/icbm.h -O3 
    
 In python you have to build the package for ICBM once.
 This is covered in the makefile (coming soon).
