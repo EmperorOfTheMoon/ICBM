@@ -62,9 +62,9 @@ The output of ICBM contains the corrected accelerograms with baseline discontinu
 
 In C++ the traces are stored in
 
-'''C++
+```c++
 std::vector<std::vector>> (M, std:vector<double>(N))
-'''
+```
 
 where M is the number of traces (usually 1 or 3,l currently only three traces are supported) and N is the number of samples per trace.
 
